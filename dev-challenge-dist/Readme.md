@@ -14,7 +14,7 @@ from web-socket.
     2. Then I am sorting the data array on lastChangeAskBid field, in sortTableData() function, TableDrawer.js
     3. Follwed by accumulating the entire table HTML in prepareSortedTableMarup().
     4. At last I am making a single DOM lookup and replacing the table html with updated dataSet which is sorted on lastChangeAskBid.
-    
+
     updateTable(html) is updating the table.
 
 
@@ -28,3 +28,11 @@ I have created short functions to follow SRP.
 
 
 
+To run the project..
+
+npm i
+npm start
+
+To run test cases
+
+npm run test
