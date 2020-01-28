@@ -1,6 +1,6 @@
 var Table = (function () {
 
-    var fxPrices;
+    var fxPricesArr;
     function prepareTableRowMarup(fxPrices, index) {
         var thisItem = fxPrices[index];
         var markup = `<div class="table-content"><div>${thisItem.name}</div><div>${thisItem.bestBid}</div><div>${thisItem.bestAsk}</div><div>${thisItem.openBid}</div><div>${thisItem.openAsk}</div><div>${thisItem.lastChangeAsk}</div><div> ${thisItem.lastChangeBid}</div></div>`;
@@ -46,6 +46,7 @@ var Table = (function () {
     }
 
     this.draw = function (fxPrices, index) {
+        fxPricesArr = fxPrices;
         prepareTableRowMarup(fxPrices, index);
         sortTableData(fxPrices);
         let html = prepareSortedTableMarup(fxPrices);
@@ -55,7 +56,7 @@ var Table = (function () {
 
 
     function flushMidprice() {
-        fxPrices.map((e) => e.midPrice.length = 0);
+        fxPricesArr.map((e) => e.midPrice.length = 0);
     }
 
     function triggerSparklineFlush() {
