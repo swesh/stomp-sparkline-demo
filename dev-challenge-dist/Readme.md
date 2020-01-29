@@ -19,10 +19,9 @@ from web-socket.
 
 
 2. To build Sparkline I am appending a new div with correspond id same as name field.
-    and drawing sparkline on the each interval. I am flushing out midPrice data on every 30 seconds because we need to maintain sparkline based on data collected in last 30 seconds.
+    and drawing sparkline on the each interval. 
     
     createSparkLine() function, TableDrawer.js creates sparkLine.
-    flushMidprice() function, TableDrawer.js is flushing midPrice array.
 
 I have created short functions to follow SRP.
 
