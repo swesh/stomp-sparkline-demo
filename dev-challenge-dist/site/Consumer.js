@@ -11,9 +11,12 @@ var Consumer = (function () {
         var thisItem = fxPrices[index];
         if (!thisItem.midPrice) {
             thisItem.midPrice = [];
-        }
-        thisItem.midPrice.push((thisItem.bestBid + thisItem.bestAsk) / 2);
-
+        } else {
+            thisItem.midPrice.map((e, i) => {
+                e.craetedAt < (Date.now() - (30 * 1000)) && thisItem.midPrice.splice(i, 1);
+            });
+        } 
+        thisItem.midPrice.push({ value: ((thisItem.bestBid + thisItem.bestAsk) / 2), craetedAt: Date.now() });
     }
 
 

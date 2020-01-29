@@ -40,7 +40,7 @@ var Table = (function () {
             sparkContainer.id = e.name;
             if (sparkContainerParent) {
                 sparkContainerParent.appendChild(sparkContainer);
-                Sparkline.draw(sparkContainer, e.midPrice);
+                Sparkline.draw(sparkContainer, e.midPrice.map((m)=> m.value));
             }
         });
     }
@@ -53,17 +53,6 @@ var Table = (function () {
         updateTable(html);
         createSparkLine(fxPrices);
     }
-
-
-    function flushMidprice() {
-        fxPricesArr.map((e) => e.midPrice.length = 0);
-    }
-
-    function triggerSparklineFlush() {
-        setInterval(flushMidprice, 30000);
-    }
-
-    triggerSparklineFlush();
-    return this;
+   return this;
 })();
 module.exports = Table;
